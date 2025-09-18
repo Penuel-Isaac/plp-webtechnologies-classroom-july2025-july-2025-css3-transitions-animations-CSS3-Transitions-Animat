@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSS + JS Animations Playground</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1>Animate & Control — CSS + JS</h1>
+    <p class="subtitle">Buttons trigger animations. Functions control behavior. Have fun!</p>
+  </header>
+
+  <main class="main">
+
+    <!-- Part 1: CSS Animation examples -->
+    <section class="card">
+      <h2>Part 1 — Pure CSS: hover & keyframes</h2>
+
+      <div class="row">
+        <!-- Hover button has a nice CSS transition & transform -->
+        <button class="btn hover-btn">Hover over me</button>
+        <!-- This box will get class added by JS to run a keyframe animation once -->
+        <div id="animBox" class="demo-box">Animate me</div>
+      </div>
+
+      <div class="row controls">
+        <label>Animation duration (ms):
+          <input id="durationInput" type="number" value="800" min="200" step="100" />
+        </label>
+        <button id="animateBtn" class="btn">Animate Box (JS -> CSS)</button>
+      </div>
+    </section>
+
+    <!-- Part 2: JS Functions, scope, parameters -->
+    <section class="card">
+      <h2>Part 2 — JS Functions: scope, parameters, returns</h2>
+      <p>We show a small function that returns a value and uses local vs global variables.</p>
+      <div class="row">
+        <button id="runFnBtn" class="btn">Run Example Function</button>
+        <div id="fnOutput" class="output">Result appears here</div>
+      </div>
+      <p class="muted">Open devtools console to see logs (F12 → Console).</p>
+    </section>
+
+    <!-- Part 3: Combine CSS & JS: flip card, loader, modal -->
+    <section class="card">
+      <h2>Part 3 — JS ↔ CSS: flip card, loader, modal</h2>
+
+      <div class="row">
+        <div class="flip-card" id="flipCard">
+          <div class="flip-inner">
+            <div class="flip-front">Front</div>
+            <div class="flip-back">Back</div>
+          </div>
+        </div>
+
+        <div class="controls-col">
+          <button id="flipBtn" class="btn">Flip Card</button>
+          <button id="startLoaderBtn" class="btn light">Start Loader</button>
+          <button id="stopLoaderBtn" class="btn light">Stop Loader</button>
+          <div id="spinner" class="spinner" aria-hidden="true"></div>
+        </div>
+
+        <div class="controls-col">
+          <button id="openModalBtn" class="btn">Open Modal</button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Simple modal -->
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal">
+      <h3>Modal Title</h3>
+      <p>This modal slides in using CSS. Close to slide out.</p>
+      <div class="row">
+        <button id="closeModalBtn" class="btn light">Close</button>
+        <button id="modalActionBtn" class="btn">Action</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Completed: CSS Transitions + Keyframes + JS functions</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
