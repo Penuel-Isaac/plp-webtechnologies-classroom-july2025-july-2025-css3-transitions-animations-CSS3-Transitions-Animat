@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📚 Library Demo — CSS + JS</title>
+  <style>
+    /* === GLOBAL STYLES === */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+    }
+
+    header {
+      margin: 20px;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    /* === PART 1: CSS TRANSITIONS + ANIMATIONS === */
+    .animated-btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      background: #ff9800;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 10px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .animated-btn:hover {
+      transform: scale(1.1) rotate(-2deg);
+      background: #e68900;
+    }
+
+    /* Box that will animate on click */
+    .box {
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      margin: 20px auto;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      font-weight: bold;
+      opacity: 0;
+    }
+
+    /* Fade/slide animation */
+    @keyframes slideIn {
+      from { transform: translateY(-200px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .animate {
+      animation: slideIn 1s forwards;
+    }
+
+    /* Popup modal */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      transform: translateY(-200px);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .modal.show .modal-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Interactive Library Demo</h1>
+    <p>CSS3 + JavaScript Functions + Animations</p>
+  </header>
+
+  <!-- Buttons -->
+  <button class="animated-btn" onclick="animateBox()">🎬 Animate Box</button>
+  <button class="animated-btn" onclick="toggleModal(true)">📖 Open Modal</button>
+
+  <!-- Box for animation -->
+  <div class="box" id="box">BOX</div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h3>Library Popup</h3>
+      <p>This modal is powered by JS + CSS transitions 🎨</p>
+      <button onclick="toggleModal(false)">Close</button>
+    </div>
+  </div>
+
+  <script>
+    /* === PART 2: JAVASCRIPT FUNCTIONS === */
+
+    // Global variable for demo
+    let boxAnimated = false;
+
+    /**
+     * Function to animate a box with parameter and return value
+     * @returns {boolean} - Whether box is currently animated
+     */
+    function animateBox() {
+      const box = document.getElementById("box");
+
+      if (!boxAnimated) {
+        box.classList.add("animate");
+        boxAnimated = true;
+      } else {
+        box.classList.remove("animate");
+        boxAnimated = false;
+      }
+
+      return boxAnimated; // return state
+    }
+
+    /**
+     * Function to toggle modal visibility
+     * Demonstrates scope, parameters, return values
+     * @param {boolean} show - Whether to show or hide modal
+     * @returns {string} status message
+     */
+    function toggleModal(show) {
+      const modal = document.getElementById("modal");
+      if (show) {
+        modal.style.display = "flex";
+        modal.classList.add("show");
+        return "Modal opened";
+      } else {
+        modal.style.display = "none";
+        modal.classList.remove("show");
+        return "Modal closed";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* Primary Parrot Colors */
+:root {
+  --parrot-blue: #1e90ff;
+  --parrot-red: #ff3b3f;
+  --parrot-green: #28a745;
+  --parrot-yellow: #ffd700;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: var(--parrot-yellow);
+  margin: 0;
+  padding: 40px;
+}
+
+/* Title animation */
+h1 {
+  color: var(--parrot-red);
+  animation: fadeSlide 3s infinite alternate;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0.5;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button styling */
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background: var(--parrot-blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: var(--parrot-green);
+}
+
+/* Color Box */
+#colorBox {
+  width: 150px;
+  height: 150px;
+  margin: 40px auto;
+  background: var(--parrot-red);
+  border-radius: 12px;
+  transition: transform 1s ease, background 1s ease;
+}
+
+/* Animation class triggered by JS */
+.spin {
+  transform: rotate(360deg) scale(1.2);
+  background: var(--parrot-blue);
+}
